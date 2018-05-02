@@ -49,21 +49,8 @@ Task("Build")
             });
 });
 
-Task("Run-Unit-Tests")
-    .IsDependentOn("Build")
-    .Does(() =>
-{
-    DotNetCoreTest(TestProject,
-                new DotNetCoreTestSettings()
-                {
-                    Configuration = configuration,
-                    NoBuild = true,
-                    ArgumentCustomization = args => args.Append("--no-restore"),
-                });
-});
-
 Task("Package")
-    .IsDependentOn("Run-Unit-Tests")
+    .IsDependentOn("Build")
     .Does(() =>
 {
     DotNetCorePack(Project, new DotNetCorePackSettings
