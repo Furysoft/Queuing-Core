@@ -12,8 +12,14 @@
     <PackageReleaseNotes>Initial Release</PackageReleaseNotes>
     <Description>Core interfaces and Entities for queuing libraries.</Description>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Entities\**" />
+    <EmbeddedResource Remove="Entities\**" />
+    <None Remove="Entities\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <AdditionalFiles Include="..\..\stylecop.json" Link="stylecop.json">
@@ -25,11 +31,6 @@
   <ItemGroup>
     <PackageReference Include="Jetbrains.Annotations" Version="11.1.0" />
     <PackageReference Include="Stylecop.Analyzers" Version="1.0.2" PrivateAssets="All" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <Folder Include="Entities\" />
   </ItemGroup>
 
 </Project>
