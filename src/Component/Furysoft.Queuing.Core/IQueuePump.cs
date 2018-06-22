@@ -30,7 +30,8 @@ namespace Furysoft.Queuing.Core
         /// </summary>
         /// <typeparam name="TEntity">The type of the entity.</typeparam>
         /// <param name="message">The message.</param>
-        void AddMessage<TEntity>([NotNull] TEntity message);
+        void AddMessage<TEntity>([NotNull] TEntity message)
+            where TEntity : class;
 
         /// <summary>
         /// Starts the Queue Pump.
