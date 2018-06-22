@@ -6,6 +6,8 @@
 
 namespace Furysoft.Queuing.Core
 {
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Threading;
     using System.Threading.Tasks;
     using JetBrains.Annotations;
@@ -24,7 +26,8 @@ namespace Furysoft.Queuing.Core
         /// <returns>
         /// The <see cref="Task" />
         /// </returns>
-        [ContractAnnotation("halt <= entity:null")]
-        Task SubmitMessageAsync<TEntity>([NotNull] TEntity entity, CancellationToken cancellationToken = default(CancellationToken));
+        Task SubmitMessageAsync<TEntity>(
+            [NotNull] TEntity entity,
+            CancellationToken cancellationToken = default(CancellationToken));
     }
 }

@@ -6,6 +6,7 @@
 
 namespace Furysoft.Queuing.Core
 {
+    using System;
     using System.Threading;
     using JetBrains.Annotations;
 
@@ -14,6 +15,16 @@ namespace Furysoft.Queuing.Core
     /// </summary>
     public interface IQueuePump
     {
+        /// <summary>
+        /// Occurs when [batch submitted].
+        /// </summary>
+        event EventHandler<int> BatchSubmitted;
+
+        /// <summary>
+        /// Occurs when [buffer empty].
+        /// </summary>
+        event EventHandler BufferEmpty;
+
         /// <summary>
         /// Adds the message.
         /// </summary>
